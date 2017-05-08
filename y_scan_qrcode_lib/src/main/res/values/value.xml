@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--正方形扫描框的宽度相对于屏幕小边的比例，比如：720*1280，即是720的边，改变这个值可以改变扫描框的大小-->
+    <item name="rect_width_scale" format="float" type="dimen">0.6</item>
+</resources>

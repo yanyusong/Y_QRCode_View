@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">y_qrcode_view_demo</string>
+    <item name="rect_width_scale" format="float" type="dimen">0.8</item>
+</resources>

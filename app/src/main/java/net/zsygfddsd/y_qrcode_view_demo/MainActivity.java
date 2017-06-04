@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity implements Y_I_QrCodeHandleD
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_main);
-//        getSupportActionBar().hide();
+        //        getSupportActionBar().hide();
+        //surfaceView和 viewfinderView 必须大小位置全部重合叠加在一块
         surfaceView = (SurfaceView) findViewById(R.id.capture_preview_view);
         viewfinderView = (ViewfinderView) findViewById(R.id.capture_viewfinder_view);
 

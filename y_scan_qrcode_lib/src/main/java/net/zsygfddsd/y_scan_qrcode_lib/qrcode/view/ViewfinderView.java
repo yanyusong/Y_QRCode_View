@@ -123,29 +123,35 @@ public final class ViewfinderView extends View {
 
     @Override
     public void onDraw(Canvas canvas) {
+        if (cameraManager == null) {
+            return; // not ready yet, early draw before done configuring
+        }
+        Log.e("vfv", "canvas width and height----" + canvas.getWidth() + "---" + canvas.getHeight());
+        Rect frame = cameraManager.getFramingRect(canvas.getWidth(), canvas.getHeight());
+        if (frame == null) {
+            return;
+        }
 
         if (resultBitmap != null) {
             // Draw the opaque result bitmap over the scanning rectangle
             paint.setAlpha(0xff);
-            Rect localRect = new Rect();
-            getLocalVisibleRect(localRect);
+            //            Rect localRect = new Rect();
+            //            getLocalVisibleRect(localRect);
             //绘制解析成功时那一帧的图
-            canvas.drawBitmap(resultBitmap, null, localRect, paint);
+            canvas.drawBitmap(resultBitmap, null, frame, paint);
+            // 绘制遮掩层
+            drawCover(canvas, frame);
+            // 画扫描框边上的角
+            drawRectEdges(canvas, frame);
         } else {
-            if (cameraManager == null) {
-                return; // not ready yet, early draw before done configuring
-            }
-            Log.e("vfv", "canvas width and height----" + canvas.getWidth() + "---" + canvas.getHeight());
-            Rect frame = cameraManager.getFramingRect(canvas.getWidth(), canvas.getHeight());
+
             if (cameraManager.getFramingRectOnScreen() == null) {
                 int[] location = new int[2];
                 getLocationOnScreen(location);
                 Log.e("vfv", "ViewFinderView location on screen ----" + location[0] + "--" + location[1]);
                 cameraManager.setFramingRectOnScreen(location[0] + frame.left, location[1] + frame.top, location[0] + frame.right, location[1] + frame.bottom);
             }
-            if (frame == null) {
-                return;
-            }
+
             // 绘制遮掩层
             drawCover(canvas, frame);
 
@@ -155,6 +161,7 @@ public final class ViewfinderView extends View {
             // 绘制扫描线
             drawScanningLine(canvas, frame);
 
+            //画随机闪光点
             List<ResultPoint> currentPossible = possibleResultPoints;
             Collection<ResultPoint> currentLast = lastPossibleResultPoints;
             if (currentPossible.isEmpty()) {

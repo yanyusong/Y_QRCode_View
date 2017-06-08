@@ -7,10 +7,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import net.zsygfddsd.y_scan_qrcode_lib.captureview.Y_I_QrCodeHandleDelegate;
-import net.zsygfddsd.y_scan_qrcode_lib.captureview.Y_CaptureView;
-import net.zsygfddsd.y_scan_qrcode_lib.captureview.Y_CaptureViewBuilder;
-import net.zsygfddsd.y_scan_qrcode_lib.qrcode.view.ViewfinderView;
+import net.zsygfddsd.y_qrcode_view.captureview.Y_I_QrCodeHandleDelegate;
+import net.zsygfddsd.y_qrcode_view.captureview.Y_CaptureView;
+import net.zsygfddsd.y_qrcode_view.captureview.Y_CaptureViewBuilder;
+import net.zsygfddsd.y_qrcode_view.qrcode.view.ViewfinderView;
 
 public class MainActivity extends AppCompatActivity implements Y_I_QrCodeHandleDelegate {
 

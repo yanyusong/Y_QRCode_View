@@ -1,1 +1,1 @@
-include ':app',':y_scan_qrcode_lib'
+include ':app', ':y_qrcode_view'

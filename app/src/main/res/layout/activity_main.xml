@@ -23,7 +23,7 @@
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1"/>
 
-    <net.zsygfddsd.y_scan_qrcode_lib.qrcode.view.ViewfinderView
+    <net.zsygfddsd.y_qrcode_view.qrcode.view.ViewfinderView
         android:id="@+id/capture_viewfinder_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
